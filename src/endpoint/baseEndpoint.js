@@ -78,7 +78,7 @@ class BaseEndpoint extends Endpoint {
       this._width = $(this.dom).outerWidth();
       this._height = $(this.dom).outerHeight();
       
-      let box = this.dom.getBoundingClientRect();
+      let box = $(this.dom)[0].getBoundingClientRect();
       this._left = this._coordinateService._terminal2canvas('x', box.left);
       this._top = this._coordinateService._terminal2canvas('y', box.top);
 
@@ -116,7 +116,7 @@ class BaseEndpoint extends Endpoint {
       this._height = $(this.dom).outerHeight();
 
       // 计算锚点起始值
-      let box = this.dom.getBoundingClientRect();
+      let box = $(this.dom)[0].getBoundingClientRect();
       this._left = this._coordinateService._terminal2canvas('x', box.left);
       this._top = this._coordinateService._terminal2canvas('y', box.top);
       // this._left = this._coordinateService._terminal2canvas('x', $(this.dom).offset().left);
