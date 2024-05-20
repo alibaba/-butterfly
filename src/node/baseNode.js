@@ -234,6 +234,9 @@ class BaseNode extends Node {
           type: 'node:dragBegin',
           data: this
         });
+        this.endpoints.forEach((item) => {
+          item.updatePos();
+        });
       } else {
         // 单纯为了抛错事件给canvas，为了让canvas的dragtype不为空，不会触发canvas:click事件
         this.emit('InnerEvents', {

@@ -1636,10 +1636,10 @@ class BaseCanvas extends Canvas {
           neighborEdges.forEach((item) => {
             item.redraw();
           });
+          _dragItem._isMoving = false;
           _dragItem.endpoints.forEach((item) => {
             item.updatePos && item.updatePos();
           });
-          _dragItem._isMoving = false;
         }
 
         let moveItems = [_dragItem];
@@ -2102,7 +2102,7 @@ class BaseCanvas extends Canvas {
     }
 
     node._moveTo(x, y);
-    // 暂时不需要,_moveTo会修正endpoint的坐标，而且mouseup也会调用一次
+    // 因为node._moveTo会重新计算位置，所以不需要updatePos了
     // node.endpoints && node.endpoints.forEach((item) => {
     //   item.updatePos();
     // });
