@@ -205,7 +205,6 @@ class BaseEndpoint extends Endpoint {
     }
 
     this._isInitPos = true;
-
     if (!isNotEmitEvent) {
       this.emit('InnerEvents', {
         type: 'endpoint:updatePos',

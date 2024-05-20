@@ -2101,11 +2101,12 @@ class BaseCanvas extends Canvas {
       });
     }
 
-    // todo 防抖
     node._moveTo(x, y);
-    node.endpoints && node.endpoints.forEach((item) => {
-      item.updatePos();
-    });
+    // 暂时不需要,_moveTo会修正endpoint的坐标，而且mouseup也会调用一次
+    // node.endpoints && node.endpoints.forEach((item) => {
+    //   item.updatePos();
+    // });
+    
     this.edges.forEach((edge) => {
       // 重新渲染
       if (edge.type === 'endpoint') {
